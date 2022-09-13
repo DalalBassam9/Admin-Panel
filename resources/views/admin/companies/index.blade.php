@@ -28,7 +28,7 @@
 
                                                     <div class="container">
 
-                                                        <a href="{{ url('companies/create') }}"
+                                                        <a href="{{ route('companies.create') }}"
                                                             class="btn btn-success mb-3">Create new
                                                             Campany</a>
                                                         <table class="table table-bordered">
@@ -45,7 +45,7 @@
                                                                     @foreach ($companies as $company)
                                                                         <td>{{ $company->name }}</td>
                                                                         <td>{{ $company->website }}</td>
-                                                                        <td>{{ $company->logo }}</td>
+                                                                        <td>{{ $company->email }}</td>
                                                                         <td>
                                                                             <div>
                                                                                 <a href="{{ route('companies.edit', $company->id) }}"
@@ -53,15 +53,9 @@
                                                                             </div>
                                                                             <div class="py-1">
 
-
-
-
                                                                                 <button data-bs-toggle="modal"
                                                                                     data-bs-target="#exampleModal"
                                                                                     class="btn btn-xs btn-danger ">Delete</button>
-
-
-
 
                                                                                 <!-- Modal -->
                                                                                 <div class="modal fade" id="exampleModal"
@@ -103,13 +97,8 @@
                                                                                     </div>
                                                                                 </div>
 
-
-
-
                                                                             </div>
-
                                                                         </td>
-
                                                                 </tr>
                                                                 @endforeach
 

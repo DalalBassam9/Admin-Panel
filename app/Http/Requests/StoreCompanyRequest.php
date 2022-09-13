@@ -27,7 +27,7 @@ class StoreCompanyRequest extends FormRequest
             'name' => 'required|string|max:255',
             'email' => 'nullable|string|email|unique:companies|max:255',
             'website'=> 'nullable|string',
-            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif,svg',
+            'logo' => 'nullable|image|mimes:jpg,png,jpeg,gif|dimensions:min_width=100,min_height=100',
         ];
     }
 }

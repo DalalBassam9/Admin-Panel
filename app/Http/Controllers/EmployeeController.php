@@ -51,8 +51,7 @@ class EmployeeController extends Controller
             'company_id' => $request->company_id,
         ]);
 
-        return redirect()->route('employees.index')
-            ->with('success', 'You have successfully created the employee');
+        return redirect()->route('employees.index')->with('success', 'You have successfully created the employee');
     }
 
     /**
@@ -85,8 +84,7 @@ class EmployeeController extends Controller
             'company_id' => $request->company_id,
         ]);
 
-        return back()
-            ->with('success', 'You have successfully updated the Employee');
+        return back()->with('success', 'You have successfully updated the Employee');
     }
 
     /**

@@ -21,14 +21,6 @@
                                 <form action="{{ route('companies.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
                                     <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" name="email" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
-                                        @error('email')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
-                                    <div class="mb-3">
                                         <label for="name" class="form-label">Name</label>
                                         <input type="text" name="name" class="form-control" id="name"
                                             class="form-control @error('name') border-danger @enderror">
@@ -38,6 +30,15 @@
                                         @enderror
 
                                     </div>
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" name="email" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp">
+                                        @error('email')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+
 
                                     <div class="mb-3">
                                         <label for="website" class="form-label">Website</label>
@@ -54,6 +55,12 @@
                                         @error('logo')
                                             <div class="text-danger">{{ $message }}</div>
                                         @enderror
+
+                                        <img id="preview-logo-before-upload"
+                                        src="{{ asset('logo.png') }}"
+                                            alt="" class="mt-4"  width="150" height="150" >
+
+
                                     </div>
 
                                     <button type="submit" class="btn btn-primary">Add</button>
@@ -68,11 +75,33 @@
     </div>
 @endsection
 
-@section('styles')
-    <style>
-        .is-invalid {
-            border: 5px solid red;
+@push('scripts')
 
-        }
-    </style>
-@endsection
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function(e) {
+
+
+            $('#logo').change(function() {
+
+                let reader = new FileReader();
+
+                reader.onload = (e) => {
+
+                    $('#preview-logo-before-upload').attr('src', e.target.result);
+                }
+
+                reader.readAsDataURL(this.files[0]);
+
+            });
+
+        });
+    </script>
+
+
+
+
+@endpush
+

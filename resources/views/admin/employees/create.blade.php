@@ -20,14 +20,7 @@
 
                                 <form action="{{ route('employees.store') }}" method="POST" enctype="multipart/form-data">
                                     @csrf
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" name="email" id="exampleInputEmail1"
-                                            aria-describedby="emailHelp">
-                                        @error('email')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+
                                     <div class="mb-3">
                                         <label for="first_name" class="form-label">First Name</label>
                                         <input type="text" name="first_name" class="form-control" id="name"
@@ -49,7 +42,14 @@
                                         @enderror
 
                                     </div>
-
+                                    <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" name="email" id="exampleInputEmail1"
+                                            aria-describedby="emailHelp">
+                                        @error('email')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
                                     <div class="mb-3">
                                         <label for="phone" class="form-label">Phone</label>
                                         <input type="text" name="phone" class="form-control" id="phone">
@@ -85,13 +85,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('styles')
-    <style>
-        .is-invalid {
-            border: 5px solid red;
-
-        }
-    </style>
 @endsection

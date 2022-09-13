@@ -1,7 +1,7 @@
 <?php
 
 namespace Database\Factories;
-
+use File;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -9,18 +9,21 @@ use Illuminate\Database\Eloquent\Factories\Factory;
  */
 class CompanyFactory extends Factory
 {
+
     /**
      * Define the model's default state.
      *
      * @return array<string, mixed>
      */
     public function definition()
+
     {
+
         return [
             'name' => $this->faker->unique()->company,
             'email' => $this->faker->unique()->email,
             'website' => $this->faker->url,
-            'logo' => $this->faker->imageUrl($width = 100, $height = 100),
+            'logo'  => $this->faker->imageUrl(400, 300, null, false),
         ];
     }
 }

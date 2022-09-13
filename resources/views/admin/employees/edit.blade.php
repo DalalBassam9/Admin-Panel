@@ -25,15 +25,7 @@
                                     @csrf
                                     @method('PUT')
 
-                                    <div class="mb-3">
-                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
-                                        <input type="email" class="form-control" name="email" id="exampleInputEmail1"
-                                            value="{{ old('email') ? old('email') : $employee->email }}"
-                                            aria-describedby="emailHelp">
-                                        @error('email')
-                                            <div class="text-danger">{{ $message }}</div>
-                                        @enderror
-                                    </div>
+
                                     <div class="mb-3">
                                         <label for="first_name" class="form-label">First Name</label>
                                         <input type="text" name="first_name" class="form-control" id="name"
@@ -59,6 +51,15 @@
                                     </div>
 
                                     <div class="mb-3">
+                                        <label for="exampleInputEmail1" class="form-label">Email address</label>
+                                        <input type="email" class="form-control" name="email" id="exampleInputEmail1"
+                                            value="{{ old('email') ? old('email') : $employee->email }}"
+                                            aria-describedby="emailHelp">
+                                        @error('email')
+                                            <div class="text-danger">{{ $message }}</div>
+                                        @enderror
+                                    </div>
+                                    <div class="mb-3">
                                         <label for="phone" class="form-label">Phone</label>
                                         <input type="text" name="phone" class="form-control" id="phone"
                                             value="{{ old('phone') ? old('phone') : $employee->phone }}">
@@ -77,7 +78,8 @@
                                                 $value = old('company_id') ? old('company_id') : $employee->company_id;
                                             @endphp
                                             @foreach ($companies as $company)
-                                                <option value="{{ $company->id }}" {{ $value == $company->id ? 'selected' : '' }} >
+                                                <option value="{{ $company->id }}"
+                                                    {{ $value == $company->id ? 'selected' : '' }}>
                                                     {{ $company->name }}</option>
                                             @endforeach
                                         </select>
@@ -97,13 +99,4 @@
             </div>
         </div>
     </div>
-@endsection
-
-@section('styles')
-    <style>
-        .is-invalid {
-            border: 5px solid red;
-
-        }
-    </style>
 @endsection

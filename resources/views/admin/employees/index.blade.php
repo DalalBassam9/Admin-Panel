@@ -28,7 +28,7 @@
 
                                                     <div class="container">
 
-                                                        <a href="{{ url('employees/create') }}"
+                                                        <a href="{{ route('employees.create') }}"
                                                             class="btn btn-success mb-3">Create new
                                                             Employee</a>
                                                         <table class="table table-bordered">
@@ -100,14 +100,8 @@
                                                                                         </div>
                                                                                     </div>
                                                                                 </div>
-
-
-
-
                                                                             </div>
-
                                                                         </td>
-
                                                                 </tr>
                                                                 @endforeach
 

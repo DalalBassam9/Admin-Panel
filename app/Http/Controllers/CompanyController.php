@@ -40,9 +40,6 @@ class CompanyController extends Controller
     public function store(StoreCompanyRequest $request)
     {
         if ($request->hasFile('logo')) {
-            //  $logo = 'uploads/logos/' . rand(1, 1500) . time() . date('Y-m-d') . '.jpg';
-            //   $url = Storage::disk('local')->put($logo, 'File content goes here..');
-
             $logo_path =    $request->file('logo')->store('logos', 'public');
         } else {
             $logo_path = null;
@@ -53,8 +50,8 @@ class CompanyController extends Controller
             'logo' =>  $logo_path,
             'website' => $request->website,
         ]);
-        return redirect()->route('companies.index')
-            ->with('success', 'You have successfully created the company');
+
+        return redirect()->route('companies.index')->with('success', 'You have successfully created the company');
     }
 
     /**
@@ -90,8 +87,7 @@ class CompanyController extends Controller
             'website' => $request->website,
         ]);
 
-        return back()
-            ->with('success', 'You have successfully updated the company');
+        return back()->with('success', 'You have successfully updated the company');
 
     }
 
